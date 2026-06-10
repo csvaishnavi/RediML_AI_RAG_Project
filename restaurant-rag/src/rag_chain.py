@@ -92,7 +92,7 @@ Write a friendly answer with:
 def generate_llm_answer(query):
     # Retrieve matching menu items.
     # top_k=40 keeps retrieval useful but avoids sending too much context.
-    intent, filtered_items = retrieve_filtered_items(query, top_k=40)
+    intent, filtered_items = retrieve_filtered_items(query, top_k=100)
 
     # Send only the best 5 items to the LLM to avoid Groq token limit errors.
     filtered_items = filtered_items[:5]
