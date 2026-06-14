@@ -1,6 +1,6 @@
 import pypdf
 
-pdf_path = r"d:\ReDi\Final Project\raw_data\Menu of ReDi Restaurant.pdf"
+pdf_path = r"d:\ReDi\RAG_project\EJ\data\swagat_menu.pdf"
 output_path = r"c:\Users\Bright\.gemini\antigravity-ide\scratch\extracted_menu.txt"
 
 reader = pypdf.PdfReader(pdf_path)
