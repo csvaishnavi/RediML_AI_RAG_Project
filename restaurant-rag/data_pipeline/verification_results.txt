@@ -1,0 +1,83 @@
+--- CSV Sanity Checks ---
+Total rows: 157
+Columns: ['item_id', 'name', 'description_de', 'price', 'category', 'meal_type', 'is_lunch_menu', 'is_vegetarian', 'is_vegan_possible', 'contains_chicken', 'contains_lamb', 'contains_fish', 'contains_shrimp', 'contains_duck', 'contains_paneer', 'allergen_codes', 'source_page', 'search_text', 'allergen_names']
+
+Categories distribution:
+category
+Mittagsmenü / lunch menu    31
+Vegetarische Gerichte       17
+Getränke                    15
+Hähnchen-Spezialitäten      15
+Tandoori-Spezialitäten      13
+Lamm-Spezialitäten          10
+Vorspeisen                  10
+Naan / Brot                  9
+Beilagen                     8
+Biryani-Spezialitäten        7
+Desserts                     5
+Salate                       4
+Enten-Spezialitäten          4
+Fisch-Spezialitäten          4
+Suppen                       3
+Swagat-Spezialitäten         2
+
+Meal type distribution:
+meal_type
+main       103
+starter     17
+side        17
+drink       15
+dessert      5
+
+Vegetarian count:
+is_vegetarian
+True     80
+False    77
+
+Vegan possible count:
+is_vegan_possible
+False    113
+True      44
+
+Null counts:
+item_id              0
+name                 0
+description_de       0
+price                0
+category             0
+meal_type            0
+is_lunch_menu        0
+is_vegetarian        0
+is_vegan_possible    0
+contains_chicken     0
+contains_lamb        0
+contains_fish        0
+contains_shrimp      0
+contains_duck        0
+contains_paneer      0
+allergen_codes       0
+source_page          0
+search_text          0
+allergen_names       0
+
+Ingredient Flags (True counts):
+  contains_chicken: 38
+  contains_lamb: 21
+  contains_fish: 8
+  contains_shrimp: 6
+  contains_duck: 5
+  contains_paneer: 17
+
+Lunch menu items with inherited allergen codes: 31 out of 31
+
+Sample records:
+  ID: 138 | Name: Enten Korma | Price: 19.0 | Category: Enten-Spezialitäten | Veg: False | Vegan: False | Allergens: f
+  ID: 17 | Name: Fish Pakoras | Price: 7.9 | Category: Vorspeisen | Veg: False | Vegan: False | Allergens: a,d
+  ID: 159 | Name: Green Chutney | Price: 2.5 | Category: Beilagen | Veg: True | Vegan: True | Allergens: not_listed
+  ID: 166 | Name: Kheer | Price: 5.5 | Category: Desserts | Veg: True | Vegan: False | Allergens: f,g
+  ID: 112 | Name: Lamb Korma | Price: 19.0 | Category: Lamm-Spezialitäten | Veg: False | Vegan: False | Allergens: f,g
+  ID: 563 | Name: Jheenga Curry | Price: 13.9 | Category: Mittagsmenü / lunch menu | Veg: False | Vegan: False | Allergens: d,f
+  ID: 81 | Name: Butter Chicken | Price: 15.0 | Category: Hähnchen-Spezialitäten | Veg: False | Vegan: False | Allergens: f,g
+  ID: 83 | Name: Chicken Korma | Price: 16.0 | Category: Hähnchen-Spezialitäten | Veg: False | Vegan: False | Allergens: f,g
+  ID: 80 | Name: Chicken Curry | Price: 14.5 | Category: Hähnchen-Spezialitäten | Veg: False | Vegan: False | Allergens: f
+  ID: 167 | Name: Ras Malei (2 Stück) | Price: 6.0 | Category: Desserts | Veg: True | Vegan: False | Allergens: f
