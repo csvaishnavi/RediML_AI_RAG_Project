@@ -1,4 +1,4 @@
-# Swagat Menu Assistant – Restaurant AI Waiter
+# Redi  Resturant Assistant – Restaurant AI Waiter
 
 A restaurant menu chatbot built with Retrieval-Augmented Generation (RAG).
 
@@ -9,22 +9,24 @@ This project uses structured menu data, PDF menu information, ChromaDB retrieval
 ## Team Contribution
 
 ### Vaishnavi
-- Basic pipeline
+
 - Data cleaning
 - Data loading
 - Chunking
+- Basic pipeline
 
 ### Emily
-- Data preparation
+- Data source
 - Embeddings
 - Vector store
 - RAG chain
 
 ### Watcharapon Anaketanaset
+- RAG architecture Preparation
 - PDF to CSV conversion
 - Retriever
 - Streamlit app
-- RAG architecture
+
 
 ## Project Objective
 
@@ -418,25 +420,7 @@ Which dishes are under 5 euros?
 - Groq Llama model integration
 - Streamlit chat interface
 
-## Challenges Faced
 
-- Extracting useful information from PDF menus
-- Cleaning inconsistent menu data
-- Handling allergen codes correctly
-- Preventing wrong recommendations
-- Filtering drinks separately from food
-- Combining semantic search with rule-based filtering
-- Reducing hallucination from the LLM
-
-## Future Improvements
-
-- Add more cuisines
-- Support German answers
-- Add voice input
-- Add local LLM option for privacy
-- Add restaurant ordering integration
-- Add user feedback buttons
-- Improve PDF extraction pipeline
 
 ## Summary
 
