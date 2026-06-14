@@ -459,7 +459,7 @@ for p in final_pairs:
     })
 
 # Write to CSV file in target workspace
-csv_path = r"d:\ReDi\Final Project\data_output\redi_menu.csv"
+csv_path = r"d:\ReDi\RAG_project\EJ\data\swagat_menu_raw.csv"
 fieldnames = [
     "item_id", "name", "description_de", "price", "category", "meal_type",
     "is_lunch_menu", "is_vegetarian", "is_vegan_possible",
