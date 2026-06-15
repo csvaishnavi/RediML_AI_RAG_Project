@@ -1,12 +1,35 @@
-# This is the main Streamlit app for the Swagat Menu Assistant.
-# It provides a chat interface where users can ask questions about the menu, and it uses the RAG chain to generate answers based on the menu data and the user's query. The app maintains a chat history and displays both user questions and assistant answers in a conversational format.
-# Import necessary libraries and modules for Streamlit and the RAG chain.
+# This is the main Streamlit app for the Redi restaurant.
+# It provides a chat interface where users can ask questions about the menu.
+# The app uses the RAG chain to generate menu-grounded answers.
+
+from pathlib import Path
+
 import streamlit as st
+
+from chunking import split_documents
+from data_loader import load_all_documents
 from rag_chain import generate_llm_answer
+from vector_store import create_vector_store
+
+
+# Find the main project folder.
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+# ChromaDB folder where the vector database is stored.
+CHROMA_DIR = PROJECT_ROOT / "chroma_db"
+
+
+def ensure_vector_store_exists():
+    # If ChromaDB does not exist on Streamlit Cloud, build it automatically.
+    if not CHROMA_DIR.exists() or not any(CHROMA_DIR.iterdir()):
+        documents = load_all_documents()
+        chunks = split_documents(documents)
+        create_vector_store(chunks)
+
 
 # Configure the Streamlit browser page.
 st.set_page_config(
-    page_title="Swagat Menu Assistant",
+    page_title="Redi restaurant menu assistant",
     page_icon="🍛",
     layout="wide",
 )
@@ -66,7 +89,7 @@ if "messages" not in st.session_state:
         {
             "role": "assistant",
             "content": (
-                "Hello. I can help you choose from the Swagat menu. "
+                "Hello. I can help you choose from the Redi menu. "
                 "Tell me your budget, allergies, or food preference."
             ),
         }
@@ -100,7 +123,7 @@ def is_closing_message(text):
 
 # Sidebar controls.
 with st.sidebar:
-    st.header("Swagat Menu Assistant")
+    st.header("Redi restaurant menu assistant")
     st.write("A restaurant RAG chatbot for menu recommendations and allergy-aware answers.")
 
     st.divider()
@@ -130,7 +153,7 @@ with st.sidebar:
 st.markdown(
     """
     <div class="hero">
-        <div class="hero-title">Swagat Menu Assistant</div>
+        <div class="hero-title">Redi restaurant menu assistant</div>
         <div class="hero-subtitle">
             Ask natural questions about dishes, prices, allergens, vegetarian options,
             vegan possibilities, and lunch menu items.
@@ -188,9 +211,10 @@ if question:
     # Generate assistant response.
     with st.chat_message("assistant"):
         if is_closing_message(question):
-            answer = "You're welcome. Thank you for using Swagat Menu Assistant."
+            answer = "You're welcome. Thank you for using Redi restaurant menu assistant."
         else:
             with st.spinner("Checking the menu..."):
+                ensure_vector_store_exists()
                 answer = generate_llm_answer(question)
 
         st.markdown(answer)
@@ -210,5 +234,5 @@ if question:
 # Footer.
 st.markdown("---")
 st.caption(
-    "Swagat Menu Assistant uses structured menu data, Chroma retrieval, Hugging Face embeddings, and Groq/Llama."
+    "Redi restaurant menu assistant uses structured menu data, Chroma retrieval, Hugging Face embeddings, and Groq/Llama."
 )
