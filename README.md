@@ -1,4 +1,4 @@
-# Redi  Resturant Assistant – Restaurant AI Waiter
+# Redi  Resturant Assistant – Redi Restaurant AI Waiter
 
 A restaurant menu chatbot built with Retrieval-Augmented Generation (RAG).
 
